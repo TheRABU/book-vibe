@@ -4,13 +4,55 @@ const NavBar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "text-black underline transition-colors duration-300"
+              : ""
+          }
+          style={({ isActive }) =>
+            isActive
+              ? { textDecorationColor: "purple", textUnderlineOffset: "0.25em" }
+              : {}
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/listed-books">Listed Books</NavLink>
+        <NavLink
+          to="/listed-books"
+          className={({ isActive }) =>
+            isActive
+              ? "text-black underline transition-colors duration-300"
+              : ""
+          }
+          style={({ isActive }) =>
+            isActive
+              ? { textDecorationColor: "purple", textUnderlineOffset: "0.25em" }
+              : {}
+          }
+        >
+          Listed Books
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/pages-to-read">Pages to Read</NavLink>
+        <NavLink
+          to="/pages-to-read"
+          className={({ isActive }) =>
+            isActive
+              ? "text-black underline transition-colors duration-300"
+              : ""
+          }
+          style={({ isActive }) =>
+            isActive
+              ? { textDecorationColor: "purple", textUnderlineOffset: "0.25em" }
+              : {}
+          }
+        >
+          Pages to Read
+        </NavLink>
       </li>
     </>
   );

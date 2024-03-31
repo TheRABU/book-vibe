@@ -12,8 +12,7 @@ const Books = () => {
 
   return (
     <>
-      <h1 className="text-center">Books</h1>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-7 my-16">
         {books.map((book, idx) => (
           <BookCard key={idx} book={book} />
         ))}
