@@ -1,0 +1,80 @@
+[
+  {
+    "bookId": 1,
+    "bookName": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "image": "https://i0.wp.com/americanwritersmuseum.org/wp-content/uploads/2018/02/CK-3.jpg?resize=267%2C400&ssl=1",
+    "review": "A mesmerizing portrayal of the Jazz Age",
+    "totalPages": 180,
+    "rating": 4.5,
+    "category": "Classic Fiction",
+    "tags": ["Romance", "Tragedy"],
+    "publisher": "Scribner",
+    "yearOfPublishing": 1925
+  },
+  {
+    "bookId": 2,
+    "bookName": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "image": "https://media.glamour.com/photos/56e1f3c4bebf143c52613c02/master/w_1600,c_limit/entertainment-2016-02-04-main.jpg",
+    "review": "An essential American classic with timeless themes",
+    "totalPages": 324,
+    "rating": 4.8,
+    "category": "Literary Fiction",
+    "tags": ["Social Justice", "Coming-of-Age"],
+    "publisher": "J.B. Lippincott & Co.",
+    "yearOfPublishing": 1960
+  },
+  {
+    "bookId": 3,
+    "bookName": "1984",
+    "author": "George Orwell",
+    "image": "https://i.etsystatic.com/25126483/r/il/826fdb/2932014615/il_1588xN.2932014615_7vba.jpg",
+    "review": "A chilling dystopian masterpiece",
+    "totalPages": 328,
+    "rating": 4.6,
+    "category": "Science Fiction",
+    "tags": ["Dystopia", "Political Satire"],
+    "publisher": "Secker & Warburg",
+    "yearOfPublishing": 1949
+  },
+  {
+    "bookId": 4,
+    "bookName": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "image": "https://images.squarespace-cdn.com/content/v1/58c180edff7c50dd0e51a2ad/1596041939231-YZHO66S83S7PCJ16AHJH/915J5ZzKE8L.jpg?format=300w",
+    "review": "A timeless romantic comedy of manners",
+    "totalPages": 279,
+    "rating": 4.7,
+    "category": "Romantic Fiction",
+    "tags": ["Regency", "Social Commentary"],
+    "publisher": "T. Egerton, Whitehall",
+    "yearOfPublishing": 1813
+  },
+  {
+    "bookId": 5,
+    "bookName": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "image": "https://nphsthemaroon.files.wordpress.com/2022/06/img_9883-e1654281966969.jpg?w=1024&h=733&crop=1",
+    "review": "A poignant coming-of-age tale with a rebellious protagonist",
+    "totalPages": 224,
+    "rating": 4.4,
+    "category": "Literary Fiction",
+    "tags": ["Identity", "Alienation"],
+    "publisher": "Little, Brown and Company",
+    "yearOfPublishing": 1951
+  },
+  {
+    "bookId": 6,
+    "bookName": "The Lord of the Rings",
+    "author": "J.R.R. Tolkien",
+    "image": "https://s26162.pcdn.co/wp-content/uploads/2017/05/the-lord-of-the-rings-book-cover-768x995.jpg",
+    "review": "An epic fantasy adventure with rich world-building",
+    "totalPages": 1178,
+    "rating": 4.9,
+    "category": "Fantasy",
+    "tags": ["Adventure", "Epic"],
+    "publisher": "George Allen & Unwin",
+    "yearOfPublishing": 1954
+  }
+]
