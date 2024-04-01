@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const BookCard = ({ book }) => {
   const {
     bookId,
@@ -5,9 +7,8 @@ const BookCard = ({ book }) => {
     author,
     image,
     review,
-    totalPages,
-
     category,
+    tags,
     yearOfPublishing,
     rating,
   } = book;
@@ -18,17 +19,33 @@ const BookCard = ({ book }) => {
       </figure>
 
       <div className="card-body items-start">
-        <div className="badge badge-secondary">{category}</div>
+        <div className="flex space-x-4">
+          {tags.map((item, idx) => (
+            <div key={idx} className="badge badge-accent">
+              {item}
+            </div>
+          ))}
+        </div>
+
+        {/* <div className="badge badge-secondary">{category}</div> */}
         <h2 className="card-title">{bookName}</h2>
         <p className="text-lg">By: {author}</p>
         <hr />
-        <div className="card-actions flex justify-between">
-          <div>
-            <p>{category}</p>
+        <div className="card-actions ">
+          <div className="ratings flex justify-between">
+            <div>
+              <p>{category}</p>
+            </div>
+
+            <div className="flex justify-center ">
+              <p className="font-bold">{rating}</p>
+              <img src="./public/star.png" alt="" />
+            </div>
           </div>
-          <div className="ratings flex items-center">
-            <p className="font-bold">{rating}</p>
-            <img src="./public/star.png" alt="" />
+          <div>
+            <Link to={`/book/${bookId}`}>
+              <button className="btn btn-accent">View Details</button>
+            </Link>
           </div>
         </div>
       </div>
