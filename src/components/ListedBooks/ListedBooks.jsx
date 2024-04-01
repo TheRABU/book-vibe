@@ -5,7 +5,38 @@ import ListedBookCard from "./ListedBookCard";
 
 const ListedBooks = () => {
   const books = useLoaderData();
-  const [showBooks, setShowBooks] = useState([]);
+  const [wishlistBooks, setWishlistBooks] = useState([]);
+  const [readBooks, setReadBooks] = useState([]);
+  const [displaySortedBooks, setDisplaySortedBooks] = useState([]);
+
+  const handleAddToWishlist = (book) => {
+    setWishlistBooks((prevWishlistBooks) => [...prevWishlistBooks, book]);
+  };
+
+  const handleAddToReadList = (book) => {
+    setReadBooks((prevReadBooks) => [...prevReadBooks, book]);
+  };
+
+  const handleBooksFilter = (filter) => {
+    if (filter === "all") {
+      setDisplaySortedBooks([...wishlistBooks, ...readBooks]);
+    } else if (filter === "rating") {
+      const sortedByRating = [...wishlistBooks, ...readBooks].sort(
+        (a, b) => b.rating - a.rating
+      );
+      setDisplaySortedBooks(sortedByRating);
+    } else if (filter === "pages") {
+      const sortedByPages = [...wishlistBooks, ...readBooks].sort(
+        (a, b) => b.totalPages - a.totalPages
+      );
+      setDisplaySortedBooks(sortedByPages);
+    } else if (filter === "year") {
+      const sortedByYear = [...wishlistBooks, ...readBooks].sort(
+        (a, b) => b.yearOfPublishing - a.yearOfPublishing
+      );
+      setDisplaySortedBooks(sortedByYear);
+    }
+  };
 
   useEffect(() => {
     const storedBookIds = getBookDetails();
@@ -18,37 +49,57 @@ const ListedBooks = () => {
           addedBooks.push(book);
         }
       }
-      setShowBooks(addedBooks);
+      setWishlistBooks(addedBooks);
+      setDisplaySortedBooks(addedBooks);
     }
   }, [books]);
   return (
     <div>
-      <h2 className="text-center text-4xl ">Books in wishlist are</h2>
-      <h1>Total Books You have in your wishlist: {showBooks.length}</h1>
+      <h2 className="text-center text-4xl ">Books are</h2>
+      <h1>Total Books You have in your wishlist: {wishlistBooks.length}</h1>
       <div>
         <details className="dropdown">
           <summary className="m-1 btn">Sort By</summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
             <li>
-              <a>Name</a>
+              <a onClick={() => handleBooksFilter("all")}>All</a>
             </li>
             <li>
-              <a>Category</a>
+              <a onClick={() => handleBooksFilter("rating")}>Rating</a>
+            </li>
+            <li>
+              <a onClick={() => handleBooksFilter("pages")}>Pages</a>
+            </li>
+            <li>
+              <a onClick={() => handleBooksFilter("year")}>Year of Publish</a>
             </li>
           </ul>
         </details>
       </div>
       <div role="tablist" className="tabs tabs-lifted">
-        <a role="tab" className="tab">
+        <a
+          role="tab"
+          className="tab"
+          onClick={() => setDisplaySortedBooks(readBooks)}
+        >
           Read Books
         </a>
-        <a role="tab" className="tab tab-active">
+        <a
+          role="tab"
+          className="tab tab-active"
+          onClick={() => setDisplaySortedBooks(wishlistBooks)}
+        >
           Wishlist
         </a>
       </div>
       <div className="flex flex-col mt-10 mx-auto">
-        {showBooks.map((book, idx) => (
-          <ListedBookCard key={idx} book={book} />
+        {displaySortedBooks.map((book, idx) => (
+          <ListedBookCard
+            key={idx}
+            book={book}
+            onAddToWishlist={handleAddToWishlist}
+            onAddToReadList={handleAddToReadList}
+          />
         ))}
       </div>
     </div>

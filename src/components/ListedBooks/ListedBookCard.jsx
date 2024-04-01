@@ -1,5 +1,6 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlinePeopleAlt, MdContactPage } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const ListedBookCard = ({ book }) => {
   const {
@@ -12,6 +13,7 @@ const ListedBookCard = ({ book }) => {
     totalPages,
     category,
     rating,
+    bookId,
   } = book;
   return (
     <div className="flex justify-center my-5 bg-base-100 shadow-xl">
@@ -55,12 +57,35 @@ const ListedBookCard = ({ book }) => {
           <button className="btn rounded-2xl px-5 py-3 bg-[#FFAC33] text-white font-bold">
             Rating: {rating}
           </button>
-          <button className="btn rounded-2xl px-5 py-3 bg-[#23BE0A] text-white font-bold">
+          <Link
+            to={`/book/${bookId}`}
+            className="btn rounded-2xl px-5 py-3 bg-[#23BE0A] text-white font-bold"
+          >
             View Details
-          </button>
+          </Link>
         </div>
       </div>
     </div>
+    // <div className="card flex my-6 items-start bg-slate-200 shadow-xl">
+    //   <div className="left-side-image p-10">
+    //     <img src={image} alt="" />
+    //   </div>
+    //   <div className="right-side-content">
+    //     <div className="heading">
+    //       <h1>{bookName}</h1>
+    //       <p>By: {author}</p>
+    //     </div>
+    //     <div className="tags">
+    //       <div className="flex space-x-4">
+    //         {tags.map((item, idx) => (
+    //           <div key={idx} className="badge badge-accent">
+    //             {item}
+    //           </div>
+    //         ))}
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 

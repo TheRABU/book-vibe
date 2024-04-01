@@ -1,7 +1,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { saveBookDetails } from "../../../Utility/LocalStorage";
+import { saveBookDetails, getBookDetails } from "../../../Utility/LocalStorage";
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -10,14 +10,18 @@ const BookDetails = () => {
   const book = books.find((book) => book.bookId === idInt);
 
   const handleWishListBtn = () => {
-    saveBookDetails(id);
-    toast("You have added this book successfully");
+    const isExist = getBookDetails().includes(id);
+    if (isExist) {
+      toast("You already have this book");
+    } else {
+      saveBookDetails(id);
+      toast("You have added this book successfully");
+    }
   };
   return (
     <>
       <div>
-        <h1>Book details of id: {id}</h1>
-        <section className="dark:bg-gray-100 dark:text-gray-800">
+        <section className="dark:bg-gray-100 my-10 dark:text-gray-800">
           <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
             <div>
               <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
@@ -47,7 +51,12 @@ const BookDetails = () => {
                     <p>Rating: {book.rating}</p>
                   </div>
                   <div className="add-btns flex gap-x-5">
-                    <button className="btn bg-slate-200">Read</button>
+                    <button
+                      onClick={handleWishListBtn}
+                      className="btn bg-slate-200"
+                    >
+                      Read
+                    </button>
                     <button
                       onClick={handleWishListBtn}
                       className="btn px-7 py-4 bg-[#50B1C9] text-white"
