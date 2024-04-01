@@ -8,6 +8,7 @@ import Home from "./components/Home/Home.jsx";
 import ListedBooks from "./components/ListedBooks/ListedBooks.jsx";
 import PagesToRead from "./components/PagesToRead/PagesToRead.jsx";
 import BookDetails from "./components/Home/Books/BookDetails.jsx";
+import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/pages-to-read",
         element: <PagesToRead />,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ],
   },

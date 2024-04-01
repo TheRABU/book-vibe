@@ -3,7 +3,7 @@ import BookCard from "./BookCard";
 
 const Books = () => {
   const [books, setBooks] = useState([]);
-  const [dataLength, setDataLength] = useState(4);
+  // const [dataLength, setDataLength] = useState(4);
 
   useEffect(() => {
     fetch("api-data.json")
@@ -13,19 +13,19 @@ const Books = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-7 my-16">
-        {books.slice(0, dataLength).map((book, idx) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 px-6 gap-7 my-16">
+        {books.map((book, idx) => (
           <BookCard key={idx} book={book} />
         ))}
       </div>
-      <div className={dataLength === books.length && "hidden"}>
+      {/* <div className={dataLength === books.length && "hidden"}>
         <button
           onClick={() => setDataLength(books.length)}
           className="btn btn-primary"
         >
           Show All
         </button>
-      </div>
+      </div> */}
     </>
   );
 };

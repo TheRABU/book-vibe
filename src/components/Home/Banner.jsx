@@ -13,10 +13,10 @@ const Banner = () => {
             Books to freshen up your bookshelf
           </h1>
           <p className="py-6">Read more to enhance your knowledge!</p>
-          <button className="btn btn-primary">
-            <Link to="/listed-books" />
+
+          <Link className="btn btn-secondary" to="/listed-books">
             View The List
-          </button>
+          </Link>
         </div>
       </div>
     </div>
